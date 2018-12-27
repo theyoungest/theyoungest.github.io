@@ -24,6 +24,23 @@
     <!-- Custom styles for this template -->
     <link href="css/freelancer.min.css" rel="stylesheet">
 
+<style>
+html, body {width:100%;height:100%;margin:0;padding:0;} 
+.map_wrap {position:relative;overflow:hidden;width:100%;height:350px;}
+.radius_border{border:1px solid #919191;border-radius:5px;}     
+.custom_typecontrol {position:absolute;top:10px;right:10px;overflow:hidden;width:130px;height:30px;margin:0;padding:0;z-index:1;font-size:12px;font-family:'Malgun Gothic', '맑은 고딕', sans-serif;}
+.custom_typecontrol span {display:block;width:65px;height:30px;float:left;text-align:center;line-height:30px;cursor:pointer;}
+.custom_typecontrol .btn {background:#fff;background:linear-gradient(#fff,  #e6e6e6);}       
+.custom_typecontrol .btn:hover {background:#f5f5f5;background:linear-gradient(#f5f5f5,#e3e3e3);}
+.custom_typecontrol .btn:active {background:#e6e6e6;background:linear-gradient(#e6e6e6, #fff);}    
+.custom_typecontrol .selected_btn {color:#fff;background:#425470;background:linear-gradient(#425470, #5b6d8a);}
+.custom_typecontrol .selected_btn:hover {color:#fff;}   
+.custom_zoomcontrol {position:absolute;top:50px;right:10px;width:36px;height:80px;overflow:hidden;z-index:1;background-color:#f5f5f5;} 
+.custom_zoomcontrol span {display:block;width:36px;height:40px;text-align:center;cursor:pointer;}     
+.custom_zoomcontrol span img {width:15px;height:15px;padding:12px 0;border:none;}             
+.custom_zoomcontrol span:first-child{border-bottom:1px solid #bfbfbf;}            
+</style>
+    
   </head>
 
   <body id="page-top">
@@ -212,8 +229,13 @@
         <h2 class="text-center text-uppercase text-white">Map</h2>
         <hr class="star-light mb-5">
         <div class="row text-secondary mb-0">
+<div class="map_wrap">          
 <div id="mapp" style="width:100%;height:350px;"></div>
-
+    <!-- 지도 확대, 축소 컨트롤 div 입니다 -->
+    <div class="custom_zoomcontrol radius_border"> 
+        <span onclick="zoomIn()"><img src="http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_plus.png" alt="확대"></span>  
+        <span onclick="zoomOut()"><img src="http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_minus.png" alt="축소"></span>
+    </div>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=767cafb0fce48f07974d187f1cb66f7f"></script>
 <script>
 var mapContainer = document.getElementById('mapp'), // 지도를 표시할 div 
@@ -249,7 +271,7 @@ var infowindow = new daum.maps.InfoWindow({
 // 마커 위에 인포윈도우를 표시합니다. 두번째 파라미터인 marker를 넣어주지 않으면 지도 위에 표시됩니다
 infowindow.open(map, marker); 
 </script>
-          
+</div>          
         </div>
         <div class="text-center mt-4">
           <a class="btn btn-xl btn-outline-light" href="#">
